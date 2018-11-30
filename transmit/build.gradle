@@ -10,7 +10,7 @@ buildscript {
     }
     dependencies {
         classpath "jp.classmethod.aws:gradle-aws-plugin:0.38"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
     }
 }
 
