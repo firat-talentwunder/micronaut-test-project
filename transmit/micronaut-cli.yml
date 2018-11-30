@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.talentwunder.pipedrive.transmit
+---
+testFramework: spock
+sourceLanguage: groovy

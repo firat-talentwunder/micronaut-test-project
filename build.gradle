@@ -1,0 +1,65 @@
+allprojects {
+    group 'com.talentwunder.pipedrive'
+    version micronautVersion
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url  "https://dl.bintray.com/agorapulse/libs"
+        }
+    }
+}
+
+subprojects {
+    apply plugin:"io.spring.dependency-management"
+    apply plugin:"groovy"
+
+    dependencyManagement {
+        imports {
+            mavenBom "io.micronaut:micronaut-bom:$micronautVersion"
+        }
+    }
+
+    dependencies {
+        annotationProcessor "io.micronaut:micronaut-inject-java"
+
+        // Groovy
+        compile "org.codehaus.groovy:groovy:$groovyVersion"
+
+        compile "io.micronaut:micronaut-runtime-groovy"
+        compile "io.micronaut:micronaut-inject"
+        compile "io.micronaut:micronaut-runtime"
+        compile 'io.micronaut:micronaut-http-server-netty'
+
+        compile group: 'io.micronaut.test', name: 'micronaut-test-spock', version: '1.0.0.RC2'
+
+        compileOnly "io.micronaut:micronaut-inject-groovy"
+        compileOnly "io.micronaut:micronaut-inject-java"
+
+        runtime "ch.qos.logback:logback-classic:1.2.3"
+
+        testCompile "io.micronaut:micronaut-inject-groovy"
+        testCompile "io.micronaut:micronaut-inject-java"
+
+        testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
+            exclude group: "org.codehaus.groovy", module: "groovy-all"
+        }
+        testCompile 'cglib:cglib-nodep:3.2.0'
+        testCompile 'org.objenesis:objenesis:1.2'
+    }
+
+    compileJava.options.compilerArgs += '-parameters'
+    compileTestJava.options.compilerArgs += '-parameters'
+
+    test {
+        testLogging {
+            showCauses = true
+            showExceptions = true
+            showStackTraces = true
+            showStandardStreams = false
+        }
+
+        systemProperty 'TEST_RESOURCES_FOLDER', new File(project.projectDir, 'src/test/resources').canonicalPath
+    }
+}
