@@ -48,5 +48,6 @@ class TransmitControllerIntegrationSpec extends Specification {
 
         then:
         rsp.status.code == 201
+        rsp.body.isPresent()
     }
 }

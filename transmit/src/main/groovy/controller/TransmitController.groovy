@@ -12,15 +12,15 @@ import service.TransmitService
 import javax.inject.Inject
 @Controller('/transmit')
 class TransmitController {
-//    @Inject
-//    TransmitService transmitService
+    @Inject
+    TransmitService transmitService
 
     @Inject
     AllocationService allocationService
 
     @Post('/')
     @Status(HttpStatus.CREATED)
-    def send(@Body Map input) {
-        ''
+    String send(@Body Map input) {
+        'i just want to return this string'
     }
 }
