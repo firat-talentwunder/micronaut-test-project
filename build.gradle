@@ -32,7 +32,7 @@ subprojects {
         compile "io.micronaut:micronaut-runtime"
         compile 'io.micronaut:micronaut-http-server-netty'
 
-        compile group: 'io.micronaut.test', name: 'micronaut-test-spock', version: '1.0.0.RC2'
+        compile group: 'io.micronaut.test', name: 'micronaut-test-spock', version: '1.0.0'
 
         compileOnly "io.micronaut:micronaut-inject-groovy"
         compileOnly "io.micronaut:micronaut-inject-java"
