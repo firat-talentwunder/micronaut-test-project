@@ -20,7 +20,7 @@ apply plugin: 'jp.classmethod.aws.lambda'
 
 dependencyManagement {
     imports {
-        mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.228'
+        mavenBom 'com.amazonaws:aws-java-sdk-bom:1.11.477'
     }
 }
 
